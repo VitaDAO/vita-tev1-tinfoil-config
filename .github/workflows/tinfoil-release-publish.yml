@@ -1,3 +1,4 @@
+# Vita Tev1 attested deployment release.
 # DO NOT RUN MANUALLY. This workflow is dispatched automatically by
 # `tinfoil-release.yml` against the newly created release tag.
 
