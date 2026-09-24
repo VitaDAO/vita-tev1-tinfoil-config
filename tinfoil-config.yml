@@ -1,10 +1,15 @@
 cvm-version: 0.14.7
 cpus: 8
 memory: 32768
+models:
+  - name: vita-tev1-v12
+    repo: vitadao/vita-tev1-v12@e155ba6e6af56a375c8acf36664395cfa1754959
+    mpk: eb63897818b1191226ea7fd0a7f52806c1823fa948740f132b3ca22811926bd6_8447295488_a6fd2f26-659b-5ff5-ae49-956e7120621d
 containers:
   - name: vita-tev1
-    image: ghcr.io/vitadao/vita-tev1-enclave@sha256:0000000000000000000000000000000000000000000000000000000000000000
+    image: ghcr.io/vitadao/vita-tev1-enclave@sha256:a0c65a036d237530c831e8e4eac77eb93ad31eb97d6291bbcdb891b81fbeb03c
     env:
+      - MODEL_DIR: /tinfoil/mpk/mpk-eb63897818b1191226ea7fd0a7f52806c1823fa948740f132b3ca22811926bd6
       - OMP_NUM_THREADS: "8"
       - MKL_NUM_THREADS: "8"
     tmpfs:
