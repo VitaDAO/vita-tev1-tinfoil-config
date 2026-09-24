@@ -1,0 +1,23 @@
+cvm-version: 0.14.7
+cpus: 8
+memory: 32768
+containers:
+  - name: vita-tev1
+    image: ghcr.io/vitadao/vita-tev1-enclave@sha256:0000000000000000000000000000000000000000000000000000000000000000
+    env:
+      - OMP_NUM_THREADS: "8"
+      - MKL_NUM_THREADS: "8"
+    tmpfs:
+      /tmp: rw,noexec,nosuid,nodev,size=128m,mode=1777
+    restart: always
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      start_period: 300s
+shim:
+  upstream-port: 8080
+  paths:
+    - /health
+    - /decide
+    - /select
