@@ -1,4 +1,4 @@
-cvm-version: 0.14.7
+cvm-version: 0.14.10
 cpus: 8
 memory: 32768
 models:
